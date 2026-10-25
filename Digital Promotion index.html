@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="om" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Promotion - Ethiopian Digital Marketing Agency</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Noto Sans Ethiopic -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#7c3aed',
+                            violet: '#6d28d9',
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            ethioYellow: '#f59e0b',
+                            dark: '#0f172a',
+                            card: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans Ethiopic', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Glassmorphism Effects & Animations */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(124, 58, 237, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.3);
+            transform: translateY(-4px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #a855f7, #06b6d4, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #7c3aed, #06b6d4);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col selection:bg-purple-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-purple-500/30 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid font-bolt text-lg">⚡</i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-white block leading-none">
+                            Digital <span class="gradient-text">Promotion</span>
+                        </span>
+                        <span class="inline-flex items-center gap-1 mt-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Ethiopia
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+                    <a href="#home" class="hover:text-purple-400 transition-colors py-1" data-i18n="navHome">Fuula Jalqabaa</a>
+                    <a href="#services" class="hover:text-purple-400 transition-colors py-1" data-i18n="navServices">Tajaajiloota</a>
+                    <a href="#packages" class="hover:text-purple-400 transition-colors py-1" data-i18n="navPackages">Paakeejii</a>
+                    <a href="#preview" class="hover:text-purple-400 transition-colors py-1" data-i18n="navPreview">Agarsiisa Kallattii</a>
+                    <a href="#calculator" class="hover:text-purple-400 transition-colors py-1" data-i18n="navCalc">Herrega Gabaa</a>
+                    <a href="#payments" class="hover:text-purple-400 transition-colors py-1" data-i18n="navPayments">Kaffaltii</a>
+                </nav>
+
+                <!-- Language Selector & Action Button -->
+                <div class="flex items-center gap-4">
+                    <!-- Language Selector Dropdown -->
+                    <div class="relative">
+                        <select id="langSelector" class="bg-slate-900/90 text-slate-200 border border-slate-700/80 rounded-lg px-3 py-1.5 text-sm font-medium focus:outline-none focus:border-purple-500 cursor-pointer">
+                            <option value="om">🌳 Oromoo</option>
+                            <option value="am">🇪🇹 አማርኛ</option>
+                            <option value="en">🇬🇧 English</option>
+                        </select>
+                    </div>
+
+                    <a href="#contact" onclick="openOrderModal('General Inquiry')" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg gradient-bg text-white text-sm font-semibold hover:opacity-90 transition-opacity shadow-md shadow-purple-900/40" data-i18n="navContactBtn">
+                        <i class="fa-solid fa-paper-plane text-xs"></i> Nu Quunnamaa
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-xl p-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass-panel border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="mobile-nav-link block py-2 text-slate-300 hover:text-purple-400 font-medium" data-i18n="navHome">Fuula Jalqabaa</a>
+            <a href="#services" class="mobile-nav-link block py-2 text-slate-300 hover:text-purple-400 font-medium" data-i18n="navServices">Tajaajiloota</a>
+            <a href="#packages" class="mobile-nav-link block py-2 text-slate-300 hover:text-purple-400 font-medium" data-i18n="navPackages">Paakeejii</a>
+            <a href="#preview" class="mobile-nav-link block py-2 text-slate-300 hover:text-purple-400 font-medium" data-i18n="navPreview">Agarsiisa Kallattii</a>
+            <a href="#calculator" class="mobile-nav-link block py-2 text-slate-300 hover:text-purple-400 font-medium" data-i18n="navCalc">Herrega Gabaa</a>
+            <a href="#payments" class="mobile-nav-link block py-2 text-slate-300 hover:text-purple-400 font-medium" data-i18n="navPayments">Kaffaltii</a>
+            <button onclick="openOrderModal('General Inquiry')" class="w-full mt-2 py-2.5 rounded-lg gradient-bg text-white font-semibold text-center" data-i18n="navContactBtn">
+                Nu Quunnamaa
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="home" class="relative py-20 lg:py-32 overflow-hidden border-b border-slate-800/50">
+            <!-- Glow background circles -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card border-purple-500/30 text-purple-300 text-xs font-semibold mb-6">
+                        <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                        <span data-i18n="heroBadge">Dhaabbata Beeksisa Dijitaalaa Ethiopia #1</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6" data-i18n="heroTitle">
+                        Oomisha fi Daldala Keessan Dijitaalaan Beeksisaa!
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed mb-10" data-i18n="heroSubtitle">
+                        Beeksisa Telegram, Ads Facebook/TikTok, SEO Google Maps fi Sirna Kaffaltii Telebirr/CBE Birr waliin gabaa keessan dabalaa.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#packages" class="w-full sm:w-auto px-8 py-4 rounded-xl gradient-bg text-white font-bold text-base shadow-lg shadow-purple-600/30 hover:scale-105 transition-all text-center" data-i18n="heroCta1">
+                            Paakeejii Filadhaa
+                        </a>
+                        <button onclick="openOrderModal('Direct Order Hero')" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel border border-slate-700 hover:border-purple-500 text-slate-200 font-bold text-base hover:bg-slate-800/80 transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-shopping text-purple-400"></i>
+                            <span data-i18n="heroCta2">Kallattiin Ajajaa</span>
+                        </button>
+                    </div>
+
+                    <!-- Trust Stats Badge -->
+                    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-slate-800/80">
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <div class="text-2xl font-extrabold text-purple-400">500+</div>
+                            <div class="text-xs text-slate-400 mt-1" data-i18n="statClients">Kaffaltaa Milkaa'aa</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <div class="text-2xl font-extrabold text-cyan-400">10M+</div>
+                            <div class="text-xs text-slate-400 mt-1" data-i18n="statReach">Dhaqqabamummaa Oromiyaa & Ethiopia</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <div class="text-2xl font-extrabold text-emerald-400">98%</div>
+                            <div class="text-xs text-slate-400 mt-1" data-i18n="statSatisfaction">Itti Gaafatamummaa</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <div class="text-2xl font-extrabold text-amber-400">24/7</div>
+                            <div class="text-xs text-slate-400 mt-1" data-i18n="statSupport">Deggersa Yeroo Huunda</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ethiopian Service Highlights Grid -->
+        <section id="services" class="py-20 border-b border-slate-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="servicesTitle">
+                        Tajaajiloota Gabaa Dijitaalaa Bu'a-qabeessa
+                    </h2>
+                    <p class="text-slate-400 mt-3" data-i18n="servicesSubtitle">
+                        Daldala keessan guddisuuf teeknoolojii fi tooftaa ammayyaa Itoophiyaa keessatti hojjetan.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1: Telegram Marketing -->
+                    <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+                        <div class="w-14 h-14 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-telegram"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-i18n="s1Title">Telegram Marketing & Bot Integration</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="s1Desc">
+                            Chaanaalii gurguddoo irratti beeksisa raabsamuu, bot ofiitiin tajaajilu uumuu fi miseensota dhugaa baayyisuu.
+                        </p>
+                    </div>
+
+                    <!-- Service 2: Meta Targeted Ads -->
+                    <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+                        <div class="w-14 h-14 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-i18n="s2Title">Facebook & Instagram Ads</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="s2Desc">
+                            Magaalota Itoophiyaa (Finfinnee, Jimma, Adaamaa, Haawwaasaa, kkf) irratti xiyyeeffachuun maamiltoota sassaabuu.
+                        </p>
+                    </div>
+
+                    <!-- Service 3: TikTok Short Videos -->
+                    <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+                        <div class="w-14 h-14 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-i18n="s3Title">TikTok Short Video & Influencer Ads</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="s3Desc">
+                            Viidiyoolee gaggabaaboo hawatoo qopheessuu fi dhiibbaa uumtoota (influencers) waliin hojjechuu.
+                        </p>
+                    </div>
+
+                    <!-- Service 4: Google Maps & Local SEO -->
+                    <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+                        <div class="w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-i18n="s4Title">Google Search & Local Maps SEO</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="s4Desc">
+                            Bakka daldala keessanii Google Maps irratti galmeessuu fi sakatta'iinsa search irratti tokkoffaa gochuu.
+                        </p>
+                    </div>
+
+                    <!-- Service 5: Bulk SMS Campaigns -->
+                    <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+                        <div class="w-14 h-14 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-comment-sms"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-i18n="s5Title">Ethio Telecom / Safaricom Bulk SMS</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="s5Desc">
+                            Eergawwan beeksisaa gaggabaaboo (Bulk SMS) kumaatamaan lakkawwaman gara bilbila maamiltootaatti erguu.
+                        </p>
+                    </div>
+
+                    <!-- Service 6: E-Commerce & Payment Gateway -->
+                    <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+                        <div class="w-14 h-14 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-i18n="s6Title">Web Store + Telebirr Integration</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="s6Desc">
+                            Website oomisha gurguru kaffaltii Telebirr fi CBE Birr akkasumas E-Birr waliin seeraan hidhate ijaaruu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Ad & Store Mockup Simulator -->
+        <section id="preview" class="py-20 border-b border-slate-800/50 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-purple-400 text-xs font-bold tracking-widest uppercase mb-2 block" data-i18n="simTag">Agarsiisa Kallattii</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="simTitle">
+                        Beeksisa Keessan Akkamitti Mul'ata?
+                    </h2>
+                    <p class="text-slate-400 mt-2" data-i18n="simDesc">
+                        Platform adda addaa irratti qophii beeksisaa fi dukaana keessanii sarara irratti yaalaa.
+                    </p>
+                </div>
+
+                <!-- Simulator Tabs -->
+                <div class="flex justify-center gap-2 mb-8 overflow-x-auto pb-2">
+                    <button onclick="switchTab('telegram')" id="tab-telegram" class="sim-tab px-5 py-2.5 rounded-xl font-medium text-sm transition-all flex items-center gap-2 bg-purple-600 text-white shadow-lg">
+                        <i class="fa-brands fa-telegram"></i> Telegram Post
+                    </button>
+                    <button onclick="switchTab('facebook')" id="tab-facebook" class="sim-tab px-5 py-2.5 rounded-xl font-medium text-sm transition-all flex items-center gap-2 bg-slate-800 text-slate-300 hover:bg-slate-700">
+                        <i class="fa-brands fa-facebook text-blue-400"></i> Facebook Ad
+                    </button>
+                    <button onclick="switchTab('telebirr')" id="tab-telebirr" class="sim-tab px-5 py-2.5 rounded-xl font-medium text-sm transition-all flex items-center gap-2 bg-slate-800 text-slate-300 hover:bg-slate-700">
+                        <i class="fa-solid fa-wallet text-emerald-400"></i> Telebirr Store Checkout
+                    </button>
+                </div>
+
+                <!-- Simulator Container Dynamic Window -->
+                <div class="max-w-md mx-auto">
+                    <!-- Telegram Preview -->
+                    <div id="view-telegram" class="sim-view glass-panel rounded-3xl p-4 border border-slate-700 shadow-2xl">
+                        <div class="bg-slate-900 rounded-2xl p-4 border border-slate-800">
+                            <!-- Header -->
+                            <div class="flex items-center gap-3 pb-3 border-b border-slate-800">
+                                <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center font-bold text-white text-sm">DP</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Digital Market Oromia (125,000 members)</h4>
+                                    <p class="text-[11px] text-slate-400">Channel • Sponsored Post</p>
+                                </div>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="mt-4 space-y-3">
+                                <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80" alt="Product" class="w-full h-48 object-cover rounded-xl">
+                                <p class="text-sm text-slate-200 leading-relaxed">
+                                    🔥 <strong class="text-purple-400">Koppee & Uffata Ammayyaa!</strong><br>
+                                    Oomishaalee qulqullina sammuu keessan caalu gatii madalawaan Oromiyaa fi Finfinnee keessatti bakka jirtanitti isiniif dhiyeessina!
+                                </p>
+                                <div class="bg-purple-950/40 border border-purple-500/30 rounded-lg p-3 text-xs text-purple-200">
+                                    🎁 Hir'ina Gatii %20 Argachuuf Bot keenya fayyadamaa!
+                                </div>
+                                <button onclick="openOrderModal('Telegram Ad Test')" class="w-full py-2.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs flex items-center justify-center gap-2">
+                                    <i class="fa-paper-plane"></i> Telebirr'n Amma Bitaa / Order via Bot
+                                </button>
+                                <div class="flex justify-between items-center text-[10px] text-slate-500 pt-2">
+                                    <span>👁️ 45.2K views</span>
+                                    <span>14:20 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Facebook Preview (Hidden initially) -->
+                    <div id="view-facebook" class="sim-view hidden glass-panel rounded-3xl p-4 border border-slate-700 shadow-2xl">
+                        <div class="bg-slate-900 rounded-2xl p-4 border border-slate-800">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white">DP</div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-white flex items-center gap-1">
+                                            Digital Promotion Ethiopia
+                                            <i class="fa-solid fa-circle-check text-blue-500 text-xs"></i>
+                                        </h4>
+                                        <p class="text-[11px] text-slate-400">Sponsored • <i class="fa-solid fa-earth-africa"></i></p>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-ellipsis text-slate-500"></i>
+                            </div>
+                            <p class="text-xs text-slate-300 mb-3">
+                                Business keessan guddisuu meeshaa teeknoolojiitiin barbaadduu? Ads keenyaan daldala keessan gara sadarkaa itti aanutti ceesisaa!
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Facebook Ad" class="w-full h-48 object-cover rounded-xl mb-3">
+                            <div class="bg-slate-800 p-3 rounded-lg flex items-center justify-between border border-slate-700 mb-3">
+                                <div>
+                                    <div class="text-[10px] text-slate-400 uppercase tracking-wider">digitalpromotion.et</div>
+                                    <div class="text-xs font-bold text-white">Daldala Keessan Har'a Guddisaa</div>
+                                </div>
+                                <button onclick="openOrderModal('FB Ad Mockup')" class="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 text-xs text-white font-semibold rounded">
+                                    Shop Now
+                                </button>
+                            </div>
+                            <div class="flex justify-between text-xs text-slate-400 border-t border-slate-800 pt-2 px-1">
+                                <span>👍 ❤️ 1.4K Likes</span>
+                                <span>240 Comments • 89 Shares</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Telebirr Store Checkout Preview (Hidden initially) -->
+                    <div id="view-telebirr" class="sim-view hidden glass-panel rounded-3xl p-4 border border-slate-700 shadow-2xl">
+                        <div class="bg-slate-950 rounded-2xl p-5 border border-slate-800 text-center">
+                            <div class="w-16 h-16 bg-cyan-500/10 border border-cyan-500/30 rounded-2xl flex items-center justify-center mx-auto mb-3 text-cyan-400 text-2xl">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+                            <span class="px-2.5 py-1 bg-cyan-500/20 text-cyan-300 text-[10px] font-bold rounded-full">Telebirr Mini-App</span>
+                            <h4 class="text-base font-bold text-white mt-2">Dukaana Dijitaalaa Integration</h4>
+                            <p class="text-xs text-slate-400 mt-1 mb-4">Gatii Kaffaltii Amma: <strong>2,500.00 ETB</strong></p>
+
+                            <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 text-left space-y-2 mb-4">
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-slate-400">Oomisha:</span>
+                                    <span class="text-white font-medium">Smart Watch Series 8</span>
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-slate-400">Baasii Delivery:</span>
+                                    <span class="text-emerald-400 font-medium">Bilisa (Free)</span>
+                                </div>
+                                <div class="flex justify-between text-xs border-t border-slate-800 pt-2 font-bold">
+                                    <span class="text-slate-200">Waliigala:</span>
+                                    <span class="text-cyan-400">2,500 ETB</span>
+                                </div>
+                            </div>
+
+                            <button onclick="alert('Kaffaltii Telebirr Yaalii: Kaffaltiin Keessan Milkaa\'eera!')" class="w-full py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-cyan-900/40">
+                                <i class="fa-solid fa-shield-halved"></i> Telebirr'n Kaffalaa (Pay via Telebirr)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Campaign & Budget Calculator -->
+        <section id="calculator" class="py-20 border-b border-slate-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-emerald-400 text-xs font-bold tracking-widest uppercase mb-2 block" data-i18n="calcTag">Herrega Gabaa</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="calcTitle">
+                        Shakkayyii Baasii fi Dhaqqabamummaa Beeksisaa
+                    </h2>
+                    <p class="text-slate-400 mt-2" data-i18n="calcDesc">
+                        Baasii fi hammam maamila bira gahuu dandeessan tilmaama ETB irratti hundaa'e sassaabaa.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Controls -->
+                    <div class="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6">
+                        <!-- Days Slider -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-sm font-semibold text-slate-200" data-i18n="calcDaysLabel">Turtii Beeksisaa (Guyyoota):</label>
+                                <span id="daysVal" class="text-sm font-bold text-purple-400 bg-purple-950/50 px-3 py-1 rounded-md border border-purple-800">10 Guyyaa</span>
+                            </div>
+                            <input type="range" id="daysInput" min="3" max="60" value="10" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500">
+                        </div>
+
+                        <!-- Target Platforms Checklist -->
+                        <div>
+                            <label class="text-sm font-semibold text-slate-200 block mb-3" data-i18n="calcPlatformsLabel">Platform Filataman:</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                <label class="glass-card p-3 rounded-xl flex items-center gap-2 cursor-pointer border-slate-700">
+                                    <input type="checkbox" id="plat-telegram" checked class="rounded border-slate-700 text-purple-600 focus:ring-purple-500 accent-purple-600" onchange="calculateBudget()">
+                                    <span class="text-xs text-slate-200"><i class="fa-brands fa-telegram text-cyan-400"></i> Telegram</span>
+                                </label>
+                                <label class="glass-card p-3 rounded-xl flex items-center gap-2 cursor-pointer border-slate-700">
+                                    <input type="checkbox" id="plat-facebook" checked class="rounded border-slate-700 text-purple-600 focus:ring-purple-500 accent-purple-600" onchange="calculateBudget()">
+                                    <span class="text-xs text-slate-200"><i class="fa-brands fa-facebook text-blue-400"></i> Meta Ads</span>
+                                </label>
+                                <label class="glass-card p-3 rounded-xl flex items-center gap-2 cursor-pointer border-slate-700">
+                                    <input type="checkbox" id="plat-tiktok" class="rounded border-slate-700 text-purple-600 focus:ring-purple-500 accent-purple-600" onchange="calculateBudget()">
+                                    <span class="text-xs text-slate-200"><i class="fa-brands fa-tiktok text-pink-400"></i> TikTok</span>
+                                </label>
+                                <label class="glass-card p-3 rounded-xl flex items-center gap-2 cursor-pointer border-slate-700">
+                                    <input type="checkbox" id="plat-google" class="rounded border-slate-700 text-purple-600 focus:ring-purple-500 accent-purple-600" onchange="calculateBudget()">
+                                    <span class="text-xs text-slate-200"><i class="fa-brands fa-google text-emerald-400"></i> Google SEO</span>
+                                </label>
+                                <label class="glass-card p-3 rounded-xl flex items-center gap-2 cursor-pointer border-slate-700">
+                                    <input type="checkbox" id="plat-sms" class="rounded border-slate-700 text-purple-600 focus:ring-purple-500 accent-purple-600" onchange="calculateBudget()">
+                                    <span class="text-xs text-slate-200"><i class="fa-solid fa-sms text-amber-400"></i> Bulk SMS</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Addon Toggle -->
+                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <div>
+                                <h4 class="text-sm font-semibold text-white" data-i18n="calcAddonTitle">Dukaana Online + Telebirr Integration</h4>
+                                <p class="text-xs text-slate-400" data-i18n="calcAddonDesc">Website gurgurtaa meeshaa dabalataan ijaaruu</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="addonWebsite" class="sr-only peer" onchange="calculateBudget()">
+                                <div class="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Output Card -->
+                    <div class="lg:col-span-5 glass-panel p-8 rounded-3xl border border-purple-500/30 relative overflow-hidden bg-gradient-to-b from-purple-950/20 to-slate-900">
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
+
+                        <h3 class="text-sm uppercase tracking-wider font-bold text-slate-400 mb-6" data-i18n="calcSummaryTitle">Bu'aa Tilmaamaa</h3>
+
+                        <div class="space-y-6">
+                            <div>
+                                <span class="text-xs text-slate-400 block mb-1" data-i18n="calcReachLabel">Dhaqqabamummaa Maamila (Estimated Reach):</span>
+                                <div id="calcReachDisplay" class="text-3xl font-extrabold text-cyan-400">
+                                    120,000 - 250,000 <span class="text-xs font-normal text-slate-400">Namoota</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-800">
+                                <span class="text-xs text-slate-400 block mb-1" data-i18n="calcCostLabel">Waliigala Baasii Tilmaamaa (Estimated Cost):</span>
+                                <div id="calcCostDisplay" class="text-4xl font-extrabold text-emerald-400">
+                                    4,500 <span class="text-base font-bold">ETB</span>
+                                </div>
+                            </div>
+
+                            <button onclick="orderCalculatedPackage()" class="w-full py-3.5 rounded-xl gradient-bg text-white font-bold text-sm shadow-lg shadow-purple-600/30 hover:opacity-95 transition-opacity">
+                                <span data-i18n="calcOrderBtn">Karoora Kanaan Ajajaa</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Packages Section -->
+        <section id="packages" class="py-20 border-b border-slate-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="pkgTitle">
+                        Paakeejii Beeksisaa Filadhaa
+                    </h2>
+                    <p class="text-slate-400 mt-2" data-i18n="pkgSubtitle">
+                        Sadarkaa daldala keessaniif paakeejii mijataa fi gatii madalawaa.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Basic Package -->
+                    <div class="glass-card p-8 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-300 inline-block mb-4">Starter</span>
+                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="pkg1Name">Paakeejii Jalqabaa</h3>
+                            <div class="text-3xl font-extrabold text-purple-400 mb-6">3,500 <span class="text-sm font-normal text-slate-400">ETB / ji'a</span></div>
+                            
+                            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Telegram Channel Promotion (3 Channel)</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Facebook Campaign (5 Days)</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Post Poster Graphic Design (2x)</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Local Google Map Pinning</li>
+                            </ul>
+                        </div>
+                        <button onclick="openOrderModal('Paakeejii Jalqabaa (Starter)')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors" data-i18n="pkgOrder">
+                            Ajajaa / Order Now
+                        </button>
+                    </div>
+
+                    <!-- Growth Package (Featured) -->
+                    <div class="glass-card p-8 rounded-3xl border-2 border-purple-500 relative flex flex-col justify-between shadow-xl shadow-purple-950/50 scale-105 bg-slate-900/80">
+                        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full gradient-bg text-white text-[11px] font-bold tracking-wider uppercase">
+                            POPULAR
+                        </div>
+                        <div>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300 inline-block mb-4">Growth</span>
+                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="pkg2Name">Paakeejii Guddinaa</h3>
+                            <div class="text-3xl font-extrabold text-purple-400 mb-6">7,900 <span class="text-sm font-normal text-slate-400">ETB / ji'a</span></div>
+                            
+                            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Telegram Bot Setup + Channel Ads</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Meta Ads (Facebook & Instagram - 15 Days)</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> TikTok Short Video Ad Creation</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Bulk SMS Campaign (5,000 Contacts)</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Monthly Analytics Report</li>
+                            </ul>
+                        </div>
+                        <button onclick="openOrderModal('Paakeejii Guddinaa (Growth)')" class="w-full py-3 rounded-xl gradient-bg text-white font-bold text-sm shadow-md hover:opacity-90 transition-opacity" data-i18n="pkgOrder">
+                            Ajajaa / Order Now
+                        </button>
+                    </div>
+
+                    <!-- Enterprise Package -->
+                    <div class="glass-card p-8 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-300 inline-block mb-4">VIP Enterprise</span>
+                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="pkg3Name">Paakeejii Guutuu</h3>
+                            <div class="text-3xl font-extrabold text-purple-400 mb-6">16,500 <span class="text-sm font-normal text-slate-400">ETB / ji'a</span></div>
+                            
+                            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Full Social Media Management</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Continuous Meta, TikTok & Telegram Ads</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Custom Web Store with Telebirr & CBE integration</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Influencer Campaign Partnerships</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Dedicated Campaign Manager</li>
+                            </ul>
+                        </div>
+                        <button onclick="openOrderModal('Paakeejii Guutuu (Enterprise)')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors" data-i18n="pkgOrder">
+                            Ajajaa / Order Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ethiopian Local Payment Showcase Section -->
+        <section id="payments" class="py-20 border-b border-slate-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-slate-800 relative overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <span class="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2 block" data-i18n="payTag">Sirna Kaffaltii Itoophiyaa</span>
+                            <h2 class="text-3xl font-extrabold text-white mb-4" data-i18n="payTitle">
+                                Kaffaltii Telebirr & CBE Birr Kallattiin Simadhaa
+                            </h2>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="payDesc">
+                                Nuti daldala keessaniif sirna kaffaltii Telebirr, CBE Birr fi E-Birr website ykn bot Telegram keessan waliin wal-qabsiisuun akka maamiltoonni haala salphaan isin fooyyessan gochuu dandeessisu nuyii dhiyeessina.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <div class="glass-card px-4 py-3 rounded-xl border-emerald-500/30 flex items-center gap-3">
+                                    <i class="fa-solid fa-mobile text-emerald-400 text-xl"></i>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Telebirr Automated</div>
+                                        <div class="text-[10px] text-slate-400">Instant Payment Confirmation</div>
+                                    </div>
+                                </div>
+                                <div class="glass-card px-4 py-3 rounded-xl border-purple-500/30 flex items-center gap-3">
+                                    <i class="fa-solid fa-building-columns text-purple-400 text-xl"></i>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">CBE Birr & Banking</div>
+                                        <div class="text-[10px] text-slate-400">Direct Local Bank Wire</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Logos Visual Showcase -->
+                        <div class="flex justify-center items-center gap-6">
+                            <div class="w-32 h-32 rounded-2xl bg-cyan-600/20 border border-cyan-500/40 p-4 flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-wallet text-cyan-400 text-4xl mb-2"></i>
+                                <span class="font-extrabold text-xs text-white">telebirr</span>
+                            </div>
+                            <div class="w-32 h-32 rounded-2xl bg-purple-600/20 border border-purple-500/40 p-4 flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-university text-purple-400 text-4xl mb-2"></i>
+                                <span class="font-extrabold text-xs text-white">CBE BIRR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-3">Digital Promotion Ethiopia</h3>
+                    <p class="leading-relaxed" data-i18n="footerAbout">
+                        Dhaabbata beeksisa dijitaalaa Itoophiyaa keessatti daldala keessan guddisuuf amanamummaadhan isin tajaajilu.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase mb-3">Teessoo / Location</h4>
+                    <p>Finfinnee / Addis Ababa, Ethiopia</p>
+                    <p class="mt-1">Bole Road, Mega Tower 4th Floor</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase mb-3">Quunnamtii / Contact</h4>
+                    <p><i class="fa-solid fa-phone text-purple-400 mr-2"></i> +251 911 000 000</p>
+                    <p class="mt-1"><i class="fa-brands fa-telegram text-cyan-400 mr-2"></i> @DigitalPromotionEthio</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase mb-3">Follow Us</h4>
+                    <div class="flex gap-3 text-base">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-purple-600 transition-colors"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-purple-600 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-purple-600 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-900 text-center text-slate-500">
+                &copy; 2026 Digital Promotion Ethiopia. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact & Order Modal -->
+    <div id="orderModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="glass-panel max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-slate-700 relative shadow-2xl">
+            <!-- Close button -->
+            <button onclick="closeOrderModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-2xl font-bold text-white mb-1" data-i18n="modalTitle">Formii Ajajaa / Inquiry Form</h3>
+            <p class="text-xs text-slate-400 mb-6" data-i18n="modalDesc">Odeeffannoo keessan guutaa; saffisaan isin quunnamna.</p>
+
+            <form id="contactForm" onsubmit="submitForm(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formName">Maqaa Guutuu / Full Name</label>
+                    <input type="text" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500" placeholder="Abebe Bikila">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formPhone">Lakkoofsa Bilbilaa / Phone (+251)</label>
+                    <input type="tel" required pattern="^[0-9+ ]{9,15}$" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500" placeholder="+251 9... / 09...">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formBusiness">Maqaa Daldala Keessanii / Business Name</label>
+                    <input type="text" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500" placeholder="My Fashion Store">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formService">Tajaajila Filatame / Selected Service</label>
+                    <input type="text" id="modalServiceInput" readonly class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-purple-300 font-semibold cursor-not-allowed">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formMessage">Ergaa Dabalataa / Message (Optional)</label>
+                    <textarea rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500" placeholder="Yaada dabalataa..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl gradient-bg text-white font-bold text-sm shadow-lg shadow-purple-600/30 hover:opacity-95 transition-opacity" data-i18n="formSubmit">
+                    Ergaa Ergii / Submit Order
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification Banner -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 z-50 hidden glass-panel border border-emerald-500/40 text-emerald-300 px-5 py-4 rounded-2xl shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
+        <div>
+            <h4 class="font-bold text-xs text-white" id="toastTitle">Milkaa'ina!</h4>
+            <p class="text-xs text-slate-300" id="toastMsg">Ajajni keessan milkaa'inaan ergameera!</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic: Dynamic Localization, Interactive Tabs, Calculator & Modals -->
+    <script>
+        // 1. Language Translations Dictionary
+        const i18nData = {
+            om: {
+                navHome: "Fuula Jalqabaa",
+                navServices: "Tajaajiloota",
+                navPackages: "Paakeejii",
+                navPreview: "Agarsiisa Kallattii",
+                navCalc: "Herrega Gabaa",
+                navPayments: "Kaffaltii",
+                navContactBtn: "Nu Quunnamaa",
+                heroBadge: "Dhaabbata Beeksisa Dijitaalaa Ethiopia #1",
+                heroTitle: "Oomisha fi Daldala Keessan Dijitaalaan Beeksisaa!",
+                heroSubtitle: "Beeksisa Telegram, Ads Facebook/TikTok, SEO Google Maps fi Sirna Kaffaltii Telebirr/CBE Birr waliin gabaa keessan dabalaa.",
+                heroCta1: "Paakeejii Filadhaa",
+                heroCta2: "Kallattiin Ajajaa",
+                statClients: "Kaffaltaa Milkaa'aa",
+                statReach: "Dhaqqabamummaa Oromiyaa & Ethiopia",
+                statSatisfaction: "Itti Gaafatamummaa",
+                statSupport: "Deggersa Yeroo Huunda",
+                servicesTitle: "Tajaajiloota Gabaa Dijitaalaa Bu'a-qabeessa",
+                servicesSubtitle: "Daldala keessan guddisuuf teeknoolojii fi tooftaa ammayyaa Itoophiyaa keessatti hojjetan.",
+                s1Title: "Telegram Marketing & Bot Integration",
+                s1Desc: "Chaanaalii gurguddoo irratti beeksisa raabsamuu, bot ofiitiin tajaajilu uumuu fi miseensota dhugaa baayyisuu.",
+                s2Title: "Facebook & Instagram Ads",
+                s2Desc: "Magaalota Itoophiyaa (Finfinnee, Jimma, Adaamaa, Haawwaasaa, kkf) irratti xiyyeeffachuun maamiltoota sassaabuu.",
+                s3Title: "TikTok Short Video & Influencer Ads",
+                s3Desc: "Viidiyoolee gaggabaaboo hawatoo qopheessuu fi dhiibbaa uumtoota (influencers) waliin hojjechuu.",
+                s4Title: "Google Search & Local Maps SEO",
+                s4Desc: "Bakka daldala keessanii Google Maps irratti galmeessuu fi sakatta'iinsa search irratti tokkoffaa gochuu.",
+                s5Title: "Ethio Telecom / Safaricom Bulk SMS",
+                s5Desc: "Eergawwan beeksisaa gaggabaaboo (Bulk SMS) kumaatamaan lakkawwaman gara bilbila maamiltootaatti erguu.",
+                s6Title: "Web Store + Telebirr Integration",
+                s6Desc: "Website oomisha gurguru kaffaltii Telebirr fi CBE Birr akkasumas E-Birr waliin seeraan hidhate ijaaruu.",
+                simTag: "Agarsiisa Kallattii",
+                simTitle: "Beeksisa Keessan Akkamitti Mul'ata?",
+                simDesc: "Platform adda addaa irratti qophii beeksisaa fi dukaana keessanii sarara irratti yaalaa.",
+                calcTag: "Herrega Gabaa",
+                calcTitle: "Shakkayyii Baasii fi Dhaqqabamummaa Beeksisaa",
+                calcDesc: "Baasii fi hammam maamila bira gahuu dandeessan tilmaama ETB irratti hundaa'e sassaabaa.",
+                calcDaysLabel: "Turtii Beeksisaa (Guyyoota):",
+                calcPlatformsLabel: "Platform Filataman:",
+                calcAddonTitle: "Dukaana Online + Telebirr Integration",
+                calcAddonDesc: "Website gurgurtaa meeshaa dabalataan ijaaruu",
+                calcSummaryTitle: "Bu'aa Tilmaamaa",
+                calcReachLabel: "Dhaqqabamummaa Maamila (Estimated Reach):",
+                calcCostLabel: "Waliigala Baasii Tilmaamaa (Estimated Cost):",
+                calcOrderBtn: "Karoora Kanaan Ajajaa",
+                pkgTitle: "Paakeejii Beeksisaa Filadhaa",
+                pkgSubtitle: "Sadarkaa daldala keessaniif paakeejii mijataa fi gatii madalawaa.",
+                pkg1Name: "Paakeejii Jalqabaa",
+                pkg2Name: "Paakeejii Guddinaa",
+                pkg3Name: "Paakeejii Guutuu",
+                pkgOrder: "Ajajaa / Order Now",
+                payTag: "Sirna Kaffaltii Itoophiyaa",
+                payTitle: "Kaffaltii Telebirr & CBE Birr Kallattiin Simadhaa",
+                payDesc: "Nuti daldala keessaniif sirna kaffaltii Telebirr, CBE Birr fi E-Birr website ykn bot Telegram keessan waliin wal-qabsiisuun akka maamiltoonni haala salphaan isin fooyyessan gochuu dandeessisu nuyii dhiyeessina.",
+                footerAbout: "Dhaabbata beeksisa dijitaalaa Itoophiyaa keessatti daldala keessan guddisuuf amanamummaadhan isin tajaajilu.",
+                modalTitle: "Formii Ajajaa / Inquiry Form",
+                modalDesc: "Odeeffannoo keessan guutaa; saffisaan isin quunnamna.",
+                formName: "Maqaa Guutuu / Full Name",
+                formPhone: "Lakkoofsa Bilbilaa / Phone (+251)",
+                formBusiness: "Maqaa Daldala Keessanii / Business Name",
+                formService: "Tajaajila Filatame / Selected Service",
+                formMessage: "Ergaa Dabalataa / Message (Optional)",
+                formSubmit: "Ergaa Ergii / Submit Order",
+                toastSuccessTitle: "Milkaa'ina!",
+                toastSuccessMsg: "Ajajni keessan milkaa'inaan ergameera! Saffisaan isin quunnamna."
+            },
+            am: {
+                navHome: "ዋና ገጽ",
+                navServices: "አገልግሎቶች",
+                navPackages: "ፓኬጆች",
+                navPreview: "ቀጥታ እይታ",
+                navCalc: "የበጀት ማሽን",
+                navPayments: "ክፍያ",
+                navContactBtn: "ያግኙን",
+                heroBadge: "የኢትዮጵያ #1 ዲጂታል ማርኬቲንግ ኤጀንሲ",
+                heroTitle: "ምርትና ንግድዎን በዲጂታል ያቭውቁ!",
+                heroSubtitle: "የቴሌግራም ማርኬቲንግ፣ ፌስቡክ/ቲክቶክ አድስ፣ 谷歌 ካርታ SEO እና ቴሌብር/CBE ብር ክፍያዎችን በመጠቀም ንግድዎን ያሳድጉ።",
+                heroCta1: "ፓኬጅ ይምረጡ",
+                heroCta2: "በቀጥታ ይዘዙ",
+                statClients: "ስኬታማ ደንበኞች",
+                statReach: "ተዳራሽነት በኢትዮጵያ",
+                statSatisfaction: "የደንበኞች እርካታ",
+                statSupport: "የ24/7 ድጋፍ",
+                servicesTitle: "ውጤታማ የዲጂታል ማርኬቲንግ አገልግሎቶች",
+                servicesSubtitle: "ንግድዎን ለማሳደግ በኢትዮጵያ ውስጥ የሚሰሩ ዘመናዊ ቴክኖሎጂዎችና ስልቶች።",
+                s1Title: "የቴሌግራም ማርኬቲንግ እና ቦት",
+                s1Desc: "በትልልቅ ቻናሎች ላይ ማስታወቂያ ማሰራጨት፣ አውቶሜትድ ቦት መገንባት እና አባላትን ማሳደግ።",
+                s2Title: "የፌስቡክ እና ኢንስታግራም ማስታወቂያ",
+                s2Desc: "በኢትዮጵያ ከተሞች (አዲስ አበባ፣ ጅማ፣ አዳማ፣ ሀዋሳ ወዘተ) ላይ በማላመል ደንበኞችን መሰብሰብ።",
+                s3Title: "የቲክቶክ አጭር ቪዲዮ ማስታወቂያ",
+                s3Desc: "ማራኪ አጭር ቪዲዮዎችን ማዘጋጀት እና ከታዋቂ ተፅዕኖ ፈጣሪዎች (Influencers) ጋር መስራት።",
+                s4Title: "Google Maps እና ሴኦ (SEO)",
+                s4Desc: "ንግድዎን በGoogle Maps ላይ መመዝገብ እና በፍለጋ ውጤቶች ላይ ቀዳሚ ማድረግ።",
+                s5Title: "Bulk SMS ማስታወቂያ",
+                s5Desc: "አጫጭር የጽሁፍ መልእክቶችን (SMS) በሺዎች ለሚቆጠሩ ደንበኞች በቀጥታ መላክ።",
+                s6Title: "የዌብሳይት ሱቅ + Telebirr ክፍያ",
+                s6Desc: "ከቴሌብር እና ሲቢኢ ብር (CBE Birr) ጋር የተያያዘ የኢኮመርስ ዌብሳይት መገንባት።",
+                simTag: "ቀጥታ እይታ",
+                simTitle: "ማስታወቂያዎ እንዴት ይታያል?",
+                simDesc: "በተለያዩ ፕላትፎርሞች ላይ የማስታወቂያዎንና የሱቅዎን ገጽታ አስቀድመው ይዩ።",
+                calcTag: "የበጀት ማሽን",
+                calcTitle: "የማስታወቂያ ወጪ እና የተዳራሽነት ግምት",
+                calcDesc: "በብር (ETB) የሚወጡ ወጪዎችን እና ሊደርሱባቸው የሚችሉትን ደንበኞች ያሰሉ።",
+                calcDaysLabel: "የማስታወቂያ ቆይታ (ቀናት):",
+                calcPlatformsLabel: "የተመረጡ ፕላትፎርሞች:",
+                calcAddonTitle: "የኦንላይን ሱቅ + ቴሌብር",
+                calcAddonDesc: "ተጨማሪ እቃ መሸጫ ዌብሳይት መገንባት",
+                calcSummaryTitle: "የግምት ውጤት",
+                calcReachLabel: "የተገመተ ተዳራሽነት (Estimated Reach):",
+                calcCostLabel: "ጠቅላላ የተገመተ ወጪ (Estimated Cost):",
+                calcOrderBtn: "በዚህ እቅድ ይዘዙ",
+                pkgTitle: "የማስታወቂያ ፓኬጅ ይምረጡ",
+                pkgSubtitle: "ለድርጅትዎ የሚሆን ተስማሚና ተសមጣጣኝ ዋጋ ያላቸው ፓኬጆች።",
+                pkg1Name: "መነሻ ፓኬጅ",
+                pkg2Name: "የእድገት ፓኬጅ",
+                pkg3Name: "ሙሉ VIP ፓኬጅ",
+                pkgOrder: "አሁኑኑ ይዘዙ",
+                payTag: "የሀገር ውስጥ ክፍያዎች",
+                payTitle: "የቴሌብር እና CBE Birr ክፍያዎችን በቀጥታ ይቀበሉ",
+                payDesc: "ደንበኞችዎ በቴሌብር፣ ሲቢኢ ብር እና ኢ-ብር በቀላሉ ክፍያ መፈጸም የሚችሉበትን ሲስተም ከዌብሳይትዎ ወይም ቴሌግራም ቦትዎ ጋር እናያይዛለን።",
+                footerAbout: "በኢትዮጵያ ውስጥ ንግድዎን ለማሳደግ ታማኝ የዲጂታል ማርኬቲንግ አጋርዎ።",
+                modalTitle: "የትዕዛዝ ፎርም",
+                modalDesc: "መረጃዎን ይሙሉ፤ በፍጥነት እናነጋግርዎታለን።",
+                formName: "ሙሉ ስም",
+                formPhone: "ስልክ ቁጥር (+251)",
+                formBusiness: "የድርጅቱ/ንግዱ ስም",
+                formService: "የተመረጠው አገልግሎት",
+                formMessage: "ተጨማሪ መልእክት (ከተፈለገ)",
+                formSubmit: "ትዕዛዝ ላክ",
+                toastSuccessTitle: "ተሳክቷል!",
+                toastSuccessMsg: "ትዕዛዝዎ በጥሩ ሁኔታ ተልኳል! በቅርቡ እንገናኛለን።"
+            },
+            en: {
+                navHome: "Home",
+                navServices: "Services",
+                navPackages: "Packages",
+                navPreview: "Live Preview",
+                navCalc: "Budget Estimator",
+                navPayments: "Payments",
+                navContactBtn: "Contact Us",
+                heroBadge: "#1 Digital Marketing Agency in Ethiopia",
+                heroTitle: "Promote Your Business & Products Digitally!",
+                heroSubtitle: "Scale your reach using Telegram Marketing, Meta/TikTok Ads, Google Maps SEO, and Telebirr/CBE payment integrations.",
+                heroCta1: "Choose Package",
+                heroCta2: "Direct Order",
+                statClients: "Successful Clients",
+                statReach: "Reach in Oromia & Ethiopia",
+                statSatisfaction: "Satisfaction Rate",
+                statSupport: "24/7 Dedicated Support",
+                servicesTitle: "High-Impact Digital Marketing Services",
+                servicesSubtitle: "Modern tools & local strategies engineered to grow businesses in Ethiopia.",
+                s1Title: "Telegram Marketing & Bot Integration",
+                s1Desc: "Broadcast ads on top channels, build automated sales bots, and gain real local subscribers.",
+                s2Title: "Facebook & Instagram Ads",
+                s2Desc: "Targeted campaigns across Ethiopian cities (Addis Ababa, Jimma, Adama, Hawassa, etc.).",
+                s3Title: "TikTok Video & Influencer Ads",
+                s3Desc: "Create viral short videos and partner with top local creators to drive engagements.",
+                s4Title: "Google Maps & Search SEO",
+                s4Desc: "Pin your business location on Google Maps and dominate local search results.",
+                s5Title: "Ethio Telecom / Safaricom Bulk SMS",
+                s5Desc: "Send targeted promotional SMS directly to thousands of active phone numbers.",
+                s6Title: "Web Store + Telebirr Integration",
+                s6Desc: "Custom e-commerce sites seamlessly integrated with Telebirr and CBE Birr gateways.",
+                simTag: "Live Preview",
+                simTitle: "How Will Your Ads Look?",
+                simDesc: "Interactive real-time preview of your ads & store layout across platforms.",
+                calcTag: "Campaign Calculator",
+                calcTitle: "Estimate Reach & Budget (ETB)",
+                calcDesc: "Calculate estimated reach and costs in ETB tailored to your targets.",
+                calcDaysLabel: "Campaign Duration (Days):",
+                calcPlatformsLabel: "Target Platforms:",
+                calcAddonTitle: "Online Store + Telebirr Setup",
+                calcAddonDesc: "Include custom e-commerce web application",
+                calcSummaryTitle: "Estimated Results",
+                calcReachLabel: "Estimated Reach:",
+                calcCostLabel: "Total Estimated Cost:",
+                calcOrderBtn: "Order With This Plan",
+                pkgTitle: "Choose Your Promotion Package",
+                pkgSubtitle: "Affordable and scalable marketing tiers designed for Ethiopian growth.",
+                pkg1Name: "Starter Package",
+                pkg2Name: "Growth Package",
+                pkg3Name: "VIP Enterprise",
+                pkgOrder: "Order Now",
+                payTag: "Ethiopian Payment Gateways",
+                payTitle: "Accept Telebirr & CBE Birr Directly",
+                payDesc: "Enable your customers to pay directly via Telebirr, CBE Birr, and E-Birr on your website or Telegram Bot.",
+                footerAbout: "Your trusted digital promotion and growth partner in Ethiopia.",
+                modalTitle: "Inquiry / Order Form",
+                modalDesc: "Fill in your details and our marketing team will contact you promptly.",
+                formName: "Full Name",
+                formPhone: "Phone Number (+251)",
+                formBusiness: "Business Name",
+                formService: "Selected Service",
+                formMessage: "Additional Notes (Optional)",
+                formSubmit: "Submit Order",
+                toastSuccessTitle: "Success!",
+                toastSuccessMsg: "Your order inquiry has been submitted! We will contact you soon."
+            }
+        };
+
+        let currentLang = "om";
+
+        // Language Switcher Function
+        document.getElementById('langSelector').addEventListener('change', (e) => {
+            currentLang = e.target.value;
+            const dict = i18nData[currentLang];
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.textContent = dict[key];
+                }
+            });
+
+            // Update budget display label
+            calculateBudget();
+        });
+
+        // 2. Mobile Nav Toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // 3. Tab Switcher for Ad Mockup Simulator
+        function switchTab(tab) {
+            // Update tab button styles
+            document.querySelectorAll('.sim-tab').forEach(b => {
+                b.classList.remove('bg-purple-600', 'text-white', 'shadow-lg');
+                b.classList.add('bg-slate-800', 'text-slate-300');
+            });
+            const activeBtn = document.getElementById(`tab-${tab}`);
+            activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
+            activeBtn.classList.add('bg-purple-600', 'text-white', 'shadow-lg');
+
+            // Hide all views & show target
+            document.querySelectorAll('.sim-view').forEach(v => v.classList.add('hidden'));
+            document.getElementById(`view-${tab}`).classList.remove('hidden');
+        }
+
+        // 4. Budget & Reach Calculator Logic
+        const daysInput = document.getElementById('daysInput');
+        const daysVal = document.getElementById('daysVal');
+        
+        daysInput.addEventListener('input', (e) => {
+            daysVal.textContent = `${e.target.value} ${currentLang === 'am' ? 'ቀናት' : (currentLang === 'en' ? 'Days' : 'Guyyaa')}`;
+            calculateBudget();
+        });
+
+        function calculateBudget() {
+            const days = parseInt(daysInput.value) || 10;
+            let dailyRate = 0;
+            let baseReachPerDay = 0;
+
+            if (document.getElementById('plat-telegram').checked) { dailyRate += 150; baseReachPerDay += 4000; }
+            if (document.getElementById('plat-facebook').checked) { dailyRate += 250; baseReachPerDay += 6000; }
+            if (document.getElementById('plat-tiktok').checked) { dailyRate += 200; baseReachPerDay += 5000; }
+            if (document.getElementById('plat-google').checked) { dailyRate += 120; baseReachPerDay += 2000; }
+            if (document.getElementById('plat-sms').checked) { dailyRate += 180; baseReachPerDay += 3500; }
+
+            let totalCost = days * dailyRate;
+            let totalMinReach = days * baseReachPerDay;
+            let totalMaxReach = Math.floor(totalMinReach * 2.2);
+
+            // Addon website setup cost
+            if (document.getElementById('addonWebsite').checked) {
+                totalCost += 5000;
+            }
+
+            // Fallback baseline if nothing checked
+            if (totalCost === 0) {
+                totalCost = 500;
+                totalMinReach = 1000;
+                totalMaxReach = 3000;
+            }
+
+            // Format numbers
+            const reachStr = `${totalMinReach.toLocaleString()} - ${totalMaxReach.toLocaleString()}`;
+            const peopleLabel = currentLang === 'am' ? 'ሰዎች' : (currentLang === 'en' ? 'People' : 'Namoota');
+
+            document.getElementById('calcReachDisplay').innerHTML = `${reachStr} <span class="text-xs font-normal text-slate-400">${peopleLabel}</span>`;
+            document.getElementById('calcCostDisplay').innerHTML = `${totalCost.toLocaleString()} <span class="text-base font-bold">ETB</span>`;
+        }
+
+        function orderCalculatedPackage() {
+            const costText = document.getElementById('calcCostDisplay').textContent;
+            openOrderModal(`Custom Calculated Campaign (~ ${costText})`);
+        }
+
+        // 5. Modal Handling & Submission
+        const modal = document.getElementById('orderModal');
+        const modalServiceInput = document.getElementById('modalServiceInput');
+
+        function openOrderModal(serviceName) {
+            modalServiceInput.value = serviceName || 'General Inquiry';
+            modal.classList.remove('hidden');
+        }
+
+        function closeOrderModal() {
+            modal.classList.add('hidden');
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            closeOrderModal();
+
+            // Reset form
+            document.getElementById('contactForm').reset();
+
+            // Trigger Toast Notification
+            const dict = i18nData[currentLang];
+            document.getElementById('toastTitle').textContent = dict.toastSuccessTitle;
+            document.getElementById('toastMsg').textContent = dict.toastSuccessMsg;
+
+            const toast = document.getElementById('toastNotification');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4500);
+        }
+
+        // Initialize Calculator Default State
+        calculateBudget();
+    </script>
+</body>
+</html>
